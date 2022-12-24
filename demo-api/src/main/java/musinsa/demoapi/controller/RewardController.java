@@ -37,7 +37,7 @@ public class RewardController {
     public List<UserInfoVO> getRewardsUserList(@RequestParam(name = "date",required = true) String date,
                                           @RequestParam(name = "orderBy",defaultValue = "asc")String orderBy){
         System.out.println("[getRewardsUserList]"+ date +" "+ orderBy );
-        if(orderBy.equals("desc")){
+        if(orderBy.equalsIgnoreCase("desc")){
             return userRepository.findAllByDesc(date);
         }else{
             return userRepository.findAllByAsc(date);
